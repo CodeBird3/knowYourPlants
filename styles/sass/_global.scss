@@ -1,0 +1,94 @@
+// STRIPPING STYLES
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.wrapper {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+// FONT STYLES
+$bodyFont: 'Quicksand', sans-serif;
+
+body {
+    font-family: $bodyFont;
+    text-align: center;
+}
+
+
+// COLOUR VARIABLES
+$silverPink: #bfada3;
+$amaranthPurple: #b6244f;
+$rosewood: #590004;
+$hunterGreen: #415d43;
+$magicMint: #abebd2;
+$deepSpaceSparkle: #466365;
+    // used for overlay on plant results
+$skobeloff: #216869cf;
+
+    // CONTRAST CHECKER
+        // x vs. y
+            // x = foreground : y = background
+            // x = background: y = foreground
+        // AMARANTH PURPLE 
+            // vs. rosewood
+                // 2.35 : 1 FAIL
+            // vs. silver pink
+                // 2.89 : 1 FAIL
+            // vs. hunter green
+                // 1.16 : 1 FAIL
+            // vs. magic mint
+                // 4.63 : 1 PASS
+                    // normal text AAA: FAIL
+            // vs. deep space sparkle
+                // 1.03 : 1 FAIL
+            // vs. skobeloff
+                // 1.03 : 1 FAIL
+        // ROSEWOOD
+            // vs. silver pink
+                // 6.81 : 1 PASS
+                    // normal text AAA: FAIL
+            // vs. hunter green
+                // 2.01 : 1 FAIL
+            // vs. magic mint
+                // 10.89 : 1 PASS
+            // vs. deep space sparkle
+                // 2.26 : 1 FAIL
+            // vs. skobeloff
+                // 2.27 : 1 FAIL
+        // SILVER PINK
+            // vs. hunter green
+                // 3.38 : 1 PASS
+                    // large text AA and graphical objects/UI components ONLY
+            // vs. magic mint
+                // 1.59 : 1 FAIL
+            // vs. deep space sparkle
+                // 3 : 1 PASS
+                    // large text AA and graphical objects/UI components ONLY
+            // vs. skobeloff
+                // 2.99 : 1 FAIL
+        // HUNTER GREEN
+            // vs. magic mint
+                // 5.41 : 1 PASS
+                    // normal text AAA: FAIL
+            // vs. deep space sparkle
+                // 1.12 : 1 FAIL
+            // vs. skobeloff
+                // 1.13 : 1 FAIL
+        // MAGIC MINT
+            // vs. deep space sparkle
+                // 4.8 : 1 PASS
+                    // normal text AAA: FAIL
+            // vs. skobeloff
+                // 4.78 : 1 PASS
+                    // normal text AAA: FAIL
+        // DEEP SPACE SPARKLE vs. SKOBELOFF
+            // 1 : 1 FAIL

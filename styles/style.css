@@ -1,0 +1,456 @@
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+figcaption, figure, main {
+  display: block;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+b, strong {
+  font-weight: inherit;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+audio, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html [type=button], [type=reset], [type=submit] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: .35em .75em .625em;
+}
+
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type=checkbox], [type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details, menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+canvas {
+  display: inline-block;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.wrapper {
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
+
+header {
+  background: #abebd2;
+  height: 40vh;
+  padding: 70px;
+  color: #590004;
+  border-bottom: 4px solid #590004;
+  position: relative;
+}
+
+header h1, header h2 {
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 4rem;
+}
+
+header h2 {
+  font-size: 3.5rem;
+}
+
+header form {
+  margin: 30px;
+  font-size: 2rem;
+  position: relative;
+}
+
+header form label {
+  font-weight: bold;
+}
+
+header form input[type=text] {
+  font-family: 'Quicksand', sans-serif;
+  color: #590004;
+  border: 2px solid #b6244f;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+header form input[type=submit] {
+  font-family: inherit;
+  color: #abebd2;
+  background: #b6244f;
+  border: 2px solid #b6244f;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+header form input[type=submit]:hover {
+  background: #415d43;
+  border: 2px solid #415d43;
+}
+
+header .branch {
+  font-size: 30rem;
+  color: #bfada3;
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50px);
+}
+
+/* WHAT'S NOT IN THE SETUP SNIPPET? 
+    - wrapper
+    - body: 62.5%?
+    - go through old projects
+        - make note in snippets file of what snippets need to be made
+*/
+/* TODO
+    - wrapper
+        -> which html elements get the class of wrapper?
+    - style imageContainer
+    - find font(s) from Google
+    - hover state over .searchResults so the user knows that the can click on the image/names for more information
+        -> "Click me!" message?
+
+    - plantContainer hierarchy
+        - searchResults
+            ->
+        - imageContainer
+            -> img stylings
+            -> container size
+        - h3
+        - h4
+*/
+/* SECTION plant container search results */
+.plantContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: calc(60vh - 52px);
+  margin: 30px auto;
+  /* .searchResults */
+}
+
+.plantContainer .searchResults {
+  background: #b6244f;
+  text-align: center;
+  border: 3px solid #590004;
+  border-radius: 10px;
+  margin: 15px auto;
+  padding: 10px;
+  position: relative;
+  /* .imageContainer */
+}
+
+.plantContainer .searchResults .imageContainer {
+  /* TODO make size responsive */
+  width: 300px;
+  height: 300px;
+  border: 3px solid #590004;
+  border-radius: 10px;
+}
+
+.plantContainer .searchResults .imageContainer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  /* background-size: cover; */
+  background-position: center;
+  /* NOTE make sure that the images aren't squished/stretched */
+}
+
+.plantContainer .searchResults .textContainer {
+  display: inline-block;
+  background: #466365;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 3px solid #590004;
+  border-radius: 10px;
+}
+
+.plantContainer .searchResults h3, .plantContainer .searchResults h4 {
+  color: #abebd2;
+  text-shadow: 1px 1px 2px #590004;
+}
+
+.plantContainer .searchResults h3 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.plantContainer .searchResults h4 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.plantContainer .searchResults .overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #216869cf;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.plantContainer .searchResults .overlay .moreInfo {
+  background: transparent;
+  font-family: inherit;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #abebd2;
+  text-decoration: underline;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.plantContainer .searchResults:hover .overlay {
+  opacity: 1;
+}
+
+/* NOTE common rush (juncus effusus) image is a screenshot; find a way to get rid of the black bars */
+/* !SECTION plant container search results */
+footer {
+  background: #abebd2;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #590004;
+  border-top: 4px solid #590004;
+  padding: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer a:hover, footer a:focus {
+  text-decoration: underline;
+  color: #b6244f;
+}

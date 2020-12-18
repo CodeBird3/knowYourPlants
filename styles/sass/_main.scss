@@ -1,0 +1,122 @@
+/* WHAT'S NOT IN THE SETUP SNIPPET? 
+    - wrapper
+    - body: 62.5%?
+    - go through old projects
+        - make note in snippets file of what snippets need to be made
+*/
+
+/* TODO
+    - wrapper
+        -> which html elements get the class of wrapper?
+    - style imageContainer
+    - find font(s) from Google
+    - hover state over .searchResults so the user knows that the can click on the image/names for more information
+        -> "Click me!" message?
+
+    - plantContainer hierarchy
+        - searchResults
+            ->
+        - imageContainer
+            -> img stylings
+            -> container size
+        - h3
+        - h4
+*/
+
+
+/* SECTION plant container search results */
+
+.plantContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-height: calc(60vh - 52px);
+    margin: 30px auto;
+
+    /* .searchResults */
+    .searchResults {
+        background: $amaranthPurple;
+        text-align: center;
+        border: 3px solid $rosewood;
+        border-radius: 10px;
+        margin: 15px auto;
+        padding: 10px;
+        position: relative;
+
+        /* .imageContainer */
+        .imageContainer {
+        /* TODO make size responsive */
+        width: 300px;
+        height: 300px;
+        border: 3px solid $rosewood;
+        border-radius: 10px;
+        }
+        
+        .imageContainer img {
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        /* background-size: cover; */
+        background-position: center;
+        /* NOTE make sure that the images aren't squished/stretched */
+        }
+
+        .textContainer {
+            display: inline-block;
+            background: $deepSpaceSparkle;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border: 3px solid $rosewood;
+            border-radius: 10px;
+        }
+        
+        h3, h4 {
+        color: $magicMint;
+        text-shadow: 1px 1px 2px $rosewood;
+        }
+        
+        h3 {
+        font-size: 2rem;
+        margin-bottom: 0;
+        }
+        
+        h4 {
+        margin-top: 0;
+        font-size: 1.8rem;
+        font-style: italic;
+        font-weight: 400;
+        }
+
+        .overlay {
+            display: flex;
+            background: $skobeloff;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+
+            .moreInfo {
+                background: transparent;
+                font-family: inherit;
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: $magicMint;
+                text-decoration: underline;
+                border: none;
+                padding: 20px;
+                cursor: pointer;
+            }
+        }
+
+        &:hover .overlay {
+            opacity: 1;
+        }
+    }
+    
+}
+
+/* NOTE common rush (juncus effusus) image is a screenshot; find a way to get rid of the black bars */
+/* !SECTION plant container search results */

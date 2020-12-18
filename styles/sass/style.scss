@@ -1,0 +1,28 @@
+// import setup and global snippets
+@import 'setup';
+@import 'global';
+
+// import main styles
+    // TODO rename file as appropriate
+@import 'header';
+@import 'main';
+
+// SECTION footer styles
+footer {
+    background: $magicMint;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $rosewood;
+    border-top: 4px solid $rosewood;
+    padding: 20px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+            color: $amaranthPurple;
+        }
+    }
+}

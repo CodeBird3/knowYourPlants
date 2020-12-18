@@ -1,0 +1,70 @@
+header {
+    background: $magicMint;
+    height: 40vh;
+    padding: 70px;
+    color: $rosewood;
+    border-bottom: 4px solid $rosewood;
+    position: relative;
+
+    // TODO keep search bar at the top of the screen
+
+    h1, h2 {
+        font-weight: 600;
+        margin: 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+    }
+
+    form {
+        margin: 30px;
+        font-size: 2rem;
+        position: relative;
+
+        label {
+            // change colour?
+            font-weight: bold;
+        }
+
+        input[type=text] {
+            font-family: 'Quicksand', sans-serif;
+            color: $rosewood;
+            border: 2px solid $amaranthPurple;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+        input[type=submit] {
+            font-family: inherit;
+            color: $magicMint;
+            background: $amaranthPurple;
+            border: 2px solid $amaranthPurple;
+            border-radius: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+
+            &:hover {
+                background: $hunterGreen;
+                border: 2px solid $hunterGreen;
+            }
+        }
+
+    }
+    
+    .branch {
+        font-size: 30rem;
+        color: $silverPink;
+        transform: rotate(60deg);
+        position: absolute;
+        top: 0;
+        left: calc(50% - 50px);
+    }
+
+}
