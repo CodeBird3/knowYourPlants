@@ -23,6 +23,10 @@
             --> e.g. userSearch: phillodendron
             --> prompt: "Did you mean philodendron?"
                 ---> OR: "Plants with similar names"
+    - TODO
+        - loading circle/icon
+            - plant "growing"?
+        - determine why each page is getting two ajax calls
 */
 
 // namespace object
@@ -35,7 +39,7 @@ plantGuide.apiKey = "8xvDs1qwtUvf5Z1gjXL4KgH5b0RbJcWzSA1xLA5UBmE";
 plantGuide.getPlants = function(pageNumber) {
     // return the ajax call so the promise can be used after requesting multiple pages from the API
     return $.ajax({
-        url: "http://proxy.hackeryou.com",
+        url: "https://proxy.hackeryou.com",
         method: "GET",
         dataType: "json",
         data: {
@@ -51,16 +55,22 @@ plantGuide.getPlants = function(pageNumber) {
         }
     });
 }
-// counter = 8 --> pass into method
+    
+// pass a counter into the promisedPlants method in order to loop through 8 pages from the API at a time, this counter will then be increased when the next button is clicked (or decreased when the previous button is clicked) by 8
+    // error handling: the counter should not exceed the amount of pages in the API (will counting backwards from the end be an issue?)
+// let counter = 8;
 
 // method to request multiple promises from the API
 plantGuide.promisedPlants = function() {
     // create an array to store plant promise in order
     const plantArray = [];
+    console.log({plantArray});
 
     // loop through the API's pages in order to store multiple promises
+    // use the counter to increase the max value by 8
+    // subtract 7 from the counter to get the starting value for the loop
     for (i = 1; i <= 8; i++) {
-        plantGuide.getPlants(i);
+        // plantGuide.getPlants(i);
         // push the new plants into the array
         plantArray.push(plantGuide.getPlants(i));
     }
@@ -78,11 +88,17 @@ plantGuide.promisedPlants = function() {
         // counter at one
             // loop from pg 1 to 8
             // increment counter +8 (e.g.) on "next" button click
+                // counter += 8
+            // decrement counter +8 (e.g.) on "previous" button click
+                // counter -= 8
             // pass new counter value into promisedPlants
             // max # has to change to
 
+    console.log(plantArray);
     // check if promises have been returned successfully
     $.when(...plantArray).then(function(...rootedPlants) {
+        console.log(...plantArray);
+
         // iterate through the array and retrieve the dataObject of the .when array
         const plantInfo = rootedPlants.map(function(plantGroup) {
             return plantGroup[0];
@@ -94,6 +110,14 @@ plantGuide.promisedPlants = function() {
         plantGuide.getValue(plantDataArray);
     }).fail(function() {
         // TODO turn this into a UI experience
+        const htmlError = `
+            <div class="errorMessage">
+                <p>Oops!</p>
+                <p>The plants did not take root!</p>
+                <p>Please try again later.</p>
+            </div>
+        `
+        $("#plantContainer").append(htmlError);
         console.log("Plants did not take root.");
     });
 }
