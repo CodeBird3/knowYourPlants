@@ -1,0 +1,72 @@
+.plantInfo {
+    min-width: 500px;
+    min-height: calc(60vh - 52px);
+    background: $secondary;
+    border-left: 3px solid $primary;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    transition: all 1s;
+
+
+
+    // headings
+
+    // family
+    p {
+        margin-bottom: 15px;
+    }
+
+    // general info
+    ul {
+        list-style: none;
+        text-align: left;
+
+        h5 {
+            display: inline-block;
+            font-size: 2rem;
+            margin: 5px 0;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
+
+            li {
+                width: 50%;
+            }
+        }
+    }
+
+    // plant photo
+    img {
+        width: 300px;
+        height: auto;
+        border: 3px solid #0e273c;
+        border-radius: 7px;
+    }
+
+    // close button
+    button {
+        display: block;
+        margin: 10px auto;
+        font-family: inherit;
+        color: $bodyBackground;
+        background: $headerBackground;
+        border: 2px solid $headerBackground;
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+
+        &:hover, &:focus {
+            background: $primary;
+            border: 2px solid $primary;
+        }
+    }
+}
+
+.hide {
+    visibility: hidden;
+    right: -545px;
+}

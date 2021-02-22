@@ -6,14 +6,17 @@
     // TODO rename file as appropriate
 @import 'header';
 @import 'main';
+@import 'plantInfo';
 
 // SECTION footer styles
 footer {
-    background: $magicMint;
+    background: $headerBackground;
     font-size: 2rem;
     font-weight: 600;
-    color: $rosewood;
-    border-top: 4px solid $rosewood;
+    color: $secondary;
+    text-shadow: 2px 2px 1px $primary;
+    border-top: 4px solid $primary;
+    box-shadow: 0 -5px 10px $primary;
     padding: 20px;
 
     a {
@@ -22,7 +25,7 @@ footer {
 
         &:hover, &:focus {
             text-decoration: underline;
-            color: $amaranthPurple;
+            color: $accent1;
         }
     }
 }

@@ -64,13 +64,11 @@ plantGuide.getPlants = function(pageNumber) {
 plantGuide.promisedPlants = function() {
     // create an array to store plant promise in order
     const plantArray = [];
-    console.log({plantArray});
 
     // loop through the API's pages in order to store multiple promises
     // use the counter to increase the max value by 8
     // subtract 7 from the counter to get the starting value for the loop
     for (i = 1; i <= 8; i++) {
-        // plantGuide.getPlants(i);
         // push the new plants into the array
         plantArray.push(plantGuide.getPlants(i));
     }
@@ -94,10 +92,8 @@ plantGuide.promisedPlants = function() {
             // pass new counter value into promisedPlants
             // max # has to change to
 
-    console.log(plantArray);
     // check if promises have been returned successfully
     $.when(...plantArray).then(function(...rootedPlants) {
-        console.log(...plantArray);
 
         // iterate through the array and retrieve the dataObject of the .when array
         const plantInfo = rootedPlants.map(function(plantGroup) {
@@ -126,12 +122,33 @@ plantGuide.promisedPlants = function() {
     // new endpoint?
     // id number?
     // pass id into moreInfo (instead of plant)
+plantGuide.getOnePlant = function(plantID) {
+    // return the ajax call so the promise can be used after requesting multiple pages from the API
+        // might need to return it?
+    $.ajax({
+        url: "https://proxy.hackeryou.com",
+        method: "GET",
+        dataType: "json",
+        data: {
+            reqUrl: `https://trefle.io/api/v1/plants/${plantID}`,
+            xmlToJSON: false,
+            useCache: false,
+            params: {
+                // has a query param of token
+                token: plantGuide.apiKey
+            }
+        }
+    }).then((res) => {
+        const singlePlant = res.data;
+        plantGuide.moreInfo(plantID, singlePlant);
+    });
+}
 
 // display plants on the page
 plantGuide.displayPlants = function(plant) {
     // html string to store each plant with their information and picture
     const htmlPlant = `
-        <div class="searchResults">
+        <div class="searchResults" id=${plant.id}>
             <div class="imageContainer">
                 <img src=${plant.image_url} alt=${plant.common_name} class="plantImage">
             </div>
@@ -149,15 +166,43 @@ plantGuide.displayPlants = function(plant) {
 }
 
 // method to display more information on a targeted plant
-plantGuide.moreInfo = function(plant) {
+plantGuide.moreInfo = function(id, data) {
+    const plant = data;
     // html string to store the plant's additional information
     const htmlPlant = `
-        <div className="plantInfo">
-            <h3>${plant.common_name}</h3>
-            <h4>${plant.scientific_name}</h4>
-        </div>
+        <h3>Common Name: ${plant.common_name}</h3>
+        <h4>Scientific Name: ${plant.scientific_name}</h4>
+        <p>Family: ${plant.family_common_name}, ${plant.main_species.family}</p>
+        <ul>
+            <li><h5>Genus:</h5> ${plant.main_species.genus}</li>
+            <li><h5>Genus ID:</h5> ${plant.main_species.genus_id}</li>
+            <li>${plant.main_species.duration}</li>
+            <li><h5>Additional Common Names:</h5></li>
+            <ul>
+                ${plant.main_species.common_names.en.map((name) => {
+                    return `<li>${name}</li>`
+                }).join("")}
+            </ul>
+            <li><h5>Native to:</h5></li>
+            <ul>
+                ${plant.main_species.distribution.native.map((country) => {
+                    return `<li>${country}</li>`
+                }).join("")}
+            </ul>
+            <li><h5>Introduced to:</h5></li>
+            <ul>
+                ${plant.main_species.distribution.native.map((country) => {
+                    return `<li>${country}</li>`
+                }).join("")}
+            </ul>
+            <li><h5>Average Height:</h5> ${plant.main_species.specifications.average_height.cm / 100}m</li>
+            <li><h5>Maximum Height:</h5> ${plant.main_species.specifications.maximum_height.cm / 100}m</li>
+        </ul>
+        <!-- main_species images object?? create a gallery? -->
+        <img src=${plant.image_url} alt=${plant.common_name}/>
+        <button id="closeSection">Close</button>
     `;
-    $(".searchResults").append(htmlPlant);
+    $(".plantInfo").html(htmlPlant);
     
     /* 
         author: "L."
@@ -219,19 +264,38 @@ plantGuide.createEventListeners = function() {
     $("input[type=submit]").on("click", function(e) {
         // prevent default behaviour
         e.preventDefault();
+
+        // remove class on header
+        $("header").removeClass("homePage");
+
         // retrieve promise from ajax call
         plantGuide.promisedPlants();
     });
 
     // listen for when a user would like more information on a specific plant
     $("#plantContainer").on("click", "#moreInfo", function() {
-        console.log("More Info is requested.");
         // get data attribute on the button
-            // PASS THIS INTO MOREINFO (for api call)
-        console.log($(this).data("plantId"));
+        const $plantID = $(this).attr("data-plantid");
+        console.log($(this).attr("data-plantid"));
+
+        // change the width of the search results container so that the additional information does not overlap the plants
+        $(".plantContainer").addClass("narrowView");
+
+        // show the additional information
+        $(".plantInfo").removeClass("hide");
+
         // display more information about the specific plant that was clicked on
-        plantGuide.moreInfo();
-    })
+        plantGuide.getOnePlant($plantID);
+    });
+
+    // listen for when the user wants to close the additional information section
+    $(".plantInfo").on("click", "#closeSection", function() {
+        // change the width of the search results container back to its original width
+        $(".plantContainer").removeClass("narrowView");
+        
+        // hide the additional information
+        $(".plantInfo").addClass("hide");
+    });
 }
 
 // initialize app

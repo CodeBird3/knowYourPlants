@@ -23,22 +23,34 @@
         - h4
 */
 
+.plantSearch {
+    display: flex;
+    // for when addition information is requested, float that information to the right
+    // float: left;
+}
+
 
 // SECTION plant container search results
 
 .plantContainer {
     display: flex;
     justify-content: space-around;
+    align-content: flex-start;
     flex-wrap: wrap;
+    width: 100%;
     min-height: calc(60vh - 52px);
     margin: 30px auto;
+    transition: width 1s;
+
 
     /* .searchResults */
     .searchResults {
-        background: $amaranthPurple;
+        height: 396px;
+        background: $accent1;
         text-align: center;
-        border: 3px solid $rosewood;
+        border: 3px solid $primary;
         border-radius: 10px;
+        box-shadow: 0 5px 10px $primary;
         margin: 15px auto;
         padding: 10px;
         position: relative;
@@ -48,7 +60,7 @@
         /* TODO make size responsive */
         width: 300px;
         height: 300px;
-        border: 3px solid $rosewood;
+        border: 3px solid $primary;
         border-radius: 10px;
         }
         
@@ -63,16 +75,16 @@
 
         .textContainer {
             display: inline-block;
-            background: $deepSpaceSparkle;
+            background: $secondary;
             padding: 5px 10px;
             margin-top: 10px;
-            border: 3px solid $rosewood;
+            border: 3px solid $primary;
             border-radius: 10px;
         }
         
         h3, h4 {
-        color: $magicMint;
-        text-shadow: 1px 1px 2px $rosewood;
+        color: $primary;
+        // text-shadow: 1px 1px 2px $rosewood;
         }
         
         h3 {
@@ -89,7 +101,7 @@
 
         .overlay {
             display: flex;
-            background: $skobeloff;
+            background: $primaryOverlay;
             width: 100%;
             height: 100%;
             border-radius: 5px;
@@ -103,7 +115,7 @@
                 font-family: inherit;
                 font-size: 2.5rem;
                 font-weight: bold;
-                color: $magicMint;
+                color: $accent2;
                 text-decoration: underline;
                 border: none;
                 padding: 20px;
@@ -118,16 +130,22 @@
     
 }
 
+// when additional information on a plant is requested, shrink the width of the plantContainer so the additional infomation doesn't overlap any of the plants
+.narrowView {
+    width: calc(100% - 395px);
+    margin: 30px 0;
+}
+
 // error message
 .errorMessage {
-    background: $magicMint;
-    height: 150px;
+    background: $accent2;
     align-self: center;
     font-size: 2rem;
     font-weight: 700;
-    color: $rosewood;
-    border: 2px solid $rosewood;
+    color: $primary;
+    border: 2px solid $primary;
     border-radius: 10px;
+    box-shadow: 0 5px 10px $primary;
     padding: 20px;
 }
 

@@ -242,17 +242,36 @@ html {
 }
 
 body {
+  background: #ecfbfe;
+  color: #0e273c;
   font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
   text-align: center;
+  overflow-x: hidden;
 }
 
 header {
-  background: #abebd2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #157145;
   height: 40vh;
   padding: 70px;
-  color: #590004;
-  border-bottom: 4px solid #590004;
+  color: #b5bd89;
+  text-shadow: 2px 2px 1px #0e273c;
+  border-bottom: 4px solid #0e273c;
+  -webkit-box-shadow: 0 5px 10px #0e273c;
+          box-shadow: 0 5px 10px #0e273c;
   position: relative;
+  z-index: 10;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 header h1, header h2 {
@@ -282,7 +301,7 @@ header form label {
 
 header form input[type=text] {
   font-family: 'Quicksand', sans-serif;
-  color: #590004;
+  color: #0e273c;
   border: 2px solid #b6244f;
   border-radius: 10px;
   padding: 5px 10px;
@@ -290,7 +309,7 @@ header form input[type=text] {
 
 header form input[type=submit] {
   font-family: inherit;
-  color: #abebd2;
+  color: #ecfbfe;
   background: #b6244f;
   border: 2px solid #b6244f;
   border-radius: 10px;
@@ -298,19 +317,31 @@ header form input[type=submit] {
   cursor: pointer;
 }
 
-header form input[type=submit]:hover {
-  background: #415d43;
-  border: 2px solid #415d43;
+header form input[type=submit]:hover, header form input[type=submit]:focus {
+  background: #0e273c;
+  border: 2px solid #0e273c;
 }
 
 header .branch {
   font-size: 30rem;
-  color: #bfada3;
+  color: #99f7ab;
+  text-shadow: none;
   -webkit-transform: rotate(60deg);
           transform: rotate(60deg);
   position: absolute;
   top: 0;
   left: calc(50% - 50px);
+  -webkit-transition: top 1s;
+  transition: top 1s;
+}
+
+.homePage {
+  height: 100vh;
+  border: none;
+}
+
+.homePage .branch {
+  top: calc(50vh - 150px);
 }
 
 /* WHAT'S NOT IN THE SETUP SNIPPET? 
@@ -336,25 +367,38 @@ header .branch {
         - h3
         - h4
 */
-/* SECTION plant container search results */
+.plantSearch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .plantContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
   min-height: calc(60vh - 52px);
   margin: 30px auto;
+  -webkit-transition: width 1s;
+  transition: width 1s;
   /* .searchResults */
 }
 
 .plantContainer .searchResults {
+  height: 396px;
   background: #b6244f;
   text-align: center;
-  border: 3px solid #590004;
+  border: 3px solid #0e273c;
   border-radius: 10px;
+  -webkit-box-shadow: 0 5px 10px #0e273c;
+          box-shadow: 0 5px 10px #0e273c;
   margin: 15px auto;
   padding: 10px;
   position: relative;
@@ -365,7 +409,7 @@ header .branch {
   /* TODO make size responsive */
   width: 300px;
   height: 300px;
-  border: 3px solid #590004;
+  border: 3px solid #0e273c;
   border-radius: 10px;
 }
 
@@ -380,16 +424,15 @@ header .branch {
 
 .plantContainer .searchResults .textContainer {
   display: inline-block;
-  background: #466365;
+  background: #b5bd89;
   padding: 5px 10px;
   margin-top: 10px;
-  border: 3px solid #590004;
+  border: 3px solid #0e273c;
   border-radius: 10px;
 }
 
 .plantContainer .searchResults h3, .plantContainer .searchResults h4 {
-  color: #abebd2;
-  text-shadow: 1px 1px 2px #590004;
+  color: #0e273c;
 }
 
 .plantContainer .searchResults h3 {
@@ -408,7 +451,7 @@ header .branch {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #216869cf;
+  background: #0e273ccf;
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -423,7 +466,7 @@ header .branch {
   font-family: inherit;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #abebd2;
+  color: #99f7ab;
   text-decoration: underline;
   border: none;
   padding: 20px;
@@ -434,14 +477,105 @@ header .branch {
   opacity: 1;
 }
 
+.narrowView {
+  width: calc(100% - 395px);
+  margin: 30px 0;
+}
+
+.errorMessage {
+  background: #99f7ab;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0e273c;
+  border: 2px solid #0e273c;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 10px #0e273c;
+          box-shadow: 0 5px 10px #0e273c;
+  padding: 20px;
+}
+
 /* NOTE common rush (juncus effusus) image is a screenshot; find a way to get rid of the black bars */
-/* !SECTION plant container search results */
+.plantInfo {
+  min-width: 500px;
+  min-height: calc(60vh - 52px);
+  background: #b5bd89;
+  border-left: 3px solid #0e273c;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.plantInfo p {
+  margin-bottom: 15px;
+}
+
+.plantInfo ul {
+  list-style: none;
+  text-align: left;
+}
+
+.plantInfo ul h5 {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 5px 0;
+}
+
+.plantInfo ul ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 500px;
+}
+
+.plantInfo ul ul li {
+  width: 50%;
+}
+
+.plantInfo img {
+  width: 300px;
+  height: auto;
+  border: 3px solid #0e273c;
+  border-radius: 7px;
+}
+
+.plantInfo button {
+  display: block;
+  margin: 10px auto;
+  font-family: inherit;
+  color: #ecfbfe;
+  background: #157145;
+  border: 2px solid #157145;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.plantInfo button:hover, .plantInfo button:focus {
+  background: #0e273c;
+  border: 2px solid #0e273c;
+}
+
+.hide {
+  visibility: hidden;
+  right: -545px;
+}
+
 footer {
-  background: #abebd2;
+  background: #157145;
   font-size: 2rem;
   font-weight: 600;
-  color: #590004;
-  border-top: 4px solid #590004;
+  color: #b5bd89;
+  text-shadow: 2px 2px 1px #0e273c;
+  border-top: 4px solid #0e273c;
+  -webkit-box-shadow: 0 -5px 10px #0e273c;
+          box-shadow: 0 -5px 10px #0e273c;
   padding: 20px;
 }
 

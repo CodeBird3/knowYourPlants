@@ -18,19 +18,34 @@ html {
 // FONT STYLES
 $bodyFont: 'Quicksand', sans-serif;
 
+// COLOUR VARIABLES
+$headerBackground: #157145; //dark spring green
+$bodyBackground: #ecfbfe; // azure x 11 web color
+$primary: #0e273c; // prussian blue
+$primaryOverlay: #0e273ccf;
+$secondary: #b5bd89; // sage
+$accent1: #b6244f; // amaranth purple
+$accent2: #99f7ab; // light green
+
+
 body {
+    background: $bodyBackground;
+    color: $primary;
     font-family: $bodyFont;
+    font-size: 1.6rem;
     text-align: center;
+    overflow-x: hidden;
 }
 
 
-// COLOUR VARIABLES
-$silverPink: #bfada3;
-$amaranthPurple: #b6244f;
+
+
+
+$silverPink: #b5bd89; // sage --> WAS #bfada3
 $rosewood: #590004;
 $hunterGreen: #415d43;
-$magicMint: #abebd2;
-$deepSpaceSparkle: #466365;
+$magicMint: #99f7ab; // light green --> WAS #abebd2
+$deepSpaceSparkle: #0e273c; // prussian blue --> WAS #466365
     // used for overlay on plant results
 $skobeloff: #216869cf;
 

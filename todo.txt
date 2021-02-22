@@ -1,0 +1,34 @@
+GLOBAL
+- remove extra colours
+
+HEADER
+- search bar should stay up at the top of the screen
+    - research position sticky's cross-browser compatibility
+
+PLANT SEARCH CONTAINERS
+- make sure images are stretched/squished?    
+
+PLANT INFO CONTAINER
+- finish styles
+- when the close button is clicked, the view should scroll back up to the plant that was chosen
+
+MEDIA QUERIES
+
+GENERAL CSS
+- combine styles, create classes that contain specific sets of rules
+
+/////////////////////////////////////////////////////////
+
+JAVASCRIPT
+- continue looking into the endpoints for an individual plant and render more info
+    - zone
+    - watering?
+    - light
+    - etc.
+- next and previous buttons for more plants
+- display number of results on the page?
+- error handling for no results matching the search
+    - and suggestions
+- update error handling for empty search field
+- loading circle/icon
+- STRETCH: give the user the ability to add saved plants to a "wishlist"

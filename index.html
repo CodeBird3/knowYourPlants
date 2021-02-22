@@ -14,8 +14,8 @@
     
     <title>Caitlin Klotz - Project 2</title>
 </head>
-<body>
-    <header>
+<body class="clearfix">
+    <header class="homePage">
         <section class="wrapper">
             <h1>Know Your Plants: Know Your Zone</h1>
             <h2>Love Your Garden</h2>
@@ -30,12 +30,16 @@
         </section>
     </header>
 
-    <section class="wrapper">
+    <main class="plantSearch wrapper">
         <section class="plantContainer" id="plantContainer">
             <!-- plant images are displayed here -->
         </section>
-    </section>
-
+    
+        <section class="plantInfo hide">
+            <!-- pop up section with more details on the selected plant - position absolutely and have a higher z-index than the rest of the content -->
+        </section>
+    </main>
+    
     <footer>Created at <a href="https://junocollege.com/">Juno College</a></footer>
 
     <!-- jQuery snippet -->
